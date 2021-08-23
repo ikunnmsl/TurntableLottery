@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Client\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SqlSugar\SqlSugar.csproj" />
+    <ProjectReference Include="..\TurntableLottery.Entity\TurntableLottery.Entity.csproj" />
+    <ProjectReference Include="..\TurntableLottery.Model\TurntableLottery.Model.csproj" />
+  </ItemGroup>
+
+</Project>
