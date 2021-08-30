@@ -16,17 +16,22 @@ using TurntableLottery.Model.FromBody;
 using TurntableLottery.Token;
 using TurntableLottery.Token.Model;
 
-namespace TurntableLottery.Controllers.Admin
+namespace TurntableLottery.Controllers
 {
     /// <summary>
     /// 登录
     /// </summary>
-    [Route("api/Admin/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    public class LoginController : Controller
+    public class LoginController : ControllerBase
     {
         private readonly AccountBLL _accountBLL;
         private readonly PermissionRequirement _permissionRequirement;
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="permissionRequirement"></param>
+        /// <param name="accountBLL"></param>
         public LoginController(PermissionRequirement permissionRequirement,AccountBLL accountBLL)
         {
             _permissionRequirement = permissionRequirement;
@@ -38,7 +43,7 @@ namespace TurntableLottery.Controllers.Admin
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<JsonResult> Login([FromBody] FMLogin model)
+        public async Task<JsonResult> LoginTest([FromBody] FMLogin model)
         {
             if (string.IsNullOrEmpty(model.userName) || string.IsNullOrEmpty(model.password))
             {
