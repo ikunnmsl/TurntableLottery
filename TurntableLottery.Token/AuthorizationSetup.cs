@@ -29,7 +29,7 @@ namespace TurntableLottery.Token
             // core自带官方JWT认证，开启Bearer认证
             services.AddAuthentication(x =>
             {
-                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                //x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })

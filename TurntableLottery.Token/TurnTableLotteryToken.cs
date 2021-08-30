@@ -13,7 +13,12 @@ namespace TurntableLottery.Token
         public TurnTableLotteryToken()
         { 
         }
-
+        /// <summary>
+        /// 颁布JWT
+        /// </summary>
+        /// <param name="claims"></param>
+        /// <param name="permissionRequirement"></param>
+        /// <returns></returns>
         public static dynamic IssueJWT(Claim[] claims, PermissionRequirement permissionRequirement)
         {
             DateTime UTC = DateTime.UtcNow;

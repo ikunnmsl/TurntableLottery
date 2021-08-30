@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -15,10 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" />
     <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
-    <PackageReference Include="Ocelot" Version="17.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
     <PackageReference Include="System.Text.Json" Version="6.0.0-preview.7.21377.19" />
   </ItemGroup>
 
@@ -30,6 +31,8 @@
     <ProjectReference Include="..\TurntableLottery.Bussiness\TurntableLottery.Bussiness.csproj" />
     <ProjectReference Include="..\TurntableLottery.Entity\TurntableLottery.Entity.csproj" />
     <ProjectReference Include="..\TurntableLottery.Model\TurntableLottery.Model.csproj" />
+    <ProjectReference Include="..\TurntableLottery.NetCore\TurntableLottery.NetCore.csproj" />
+    <ProjectReference Include="..\TurntableLottery.Swagger\TurntableLottery.Swagger.csproj" />
     <ProjectReference Include="..\TurntableLottery.Token\TurntableLottery.Token.csproj" />
   </ItemGroup>
 

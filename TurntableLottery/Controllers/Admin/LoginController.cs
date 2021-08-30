@@ -27,6 +27,11 @@ namespace TurntableLottery.Controllers.Admin
     {
         private readonly AccountBLL _accountBLL;
         private readonly PermissionRequirement _permissionRequirement;
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="permissionRequirement"></param>
+        /// <param name="accountBLL"></param>
         public LoginController(PermissionRequirement permissionRequirement,AccountBLL accountBLL)
         {
             _permissionRequirement = permissionRequirement;

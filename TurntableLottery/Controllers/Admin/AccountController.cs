@@ -62,7 +62,6 @@ namespace TurntableLottery.Controllers.Admin
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("Student")]
         public JsonResult Update(Account entity = null)
         {
             if (entity == null)
