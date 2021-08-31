@@ -1,4 +1,4 @@
-using Autofac;
+ï»¿using Autofac;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -64,32 +64,32 @@ namespace TurntableLottery
             services.AddMvc();
 
             services.AddControllers();
-            //Ìí¼Ó±¾µØÂ·¾¶»ñÈ¡Ö§³Ö
+            //æ·»åŠ æœ¬åœ°è·¯å¾„è·å–æ”¯æŒ
             services.AddSingleton(new AppSettingsHelper(Env.ContentRootPath));
 
-            //Ê¹ÓÃ SignalR
+            //ä½¿ç”¨ SignalR
             services.AddSignalR();
 
-            //jwtÊÚÈ¨Ö§³Ö×¢Èë
+            //jwtæˆæƒæ”¯æŒæ³¨å…¥
             services.AddAuthorizationSetup();
 
-            //×¢²áSwagger
+            //æ³¨å†ŒSwagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TurntableLottery", Version = "v1" });
-                //Ìí¼Ó×¢ÊÍ·şÎñ
+                //æ·»åŠ æ³¨é‡ŠæœåŠ¡
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "TurntableLottery.xml");
                 c.IncludeXmlComments(xmlPath);
-                //Òş²Ø
+                //éšè—
                 c.DocumentFilter<HideOcelotControllersFilter>();
 
-                // ¿ªÆô¼ÓÈ¨Ğ¡Ëø
+                // å¼€å¯åŠ æƒå°é”
                 c.OperationFilter<AddResponseHeadersFilter>();
                 c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
             });
 
-            //·şÎñÅäÖÃÖĞ¼ÓÈëAutoFac¿ØÖÆÆ÷Ìæ»»¹æÔò¡£
+            //æœåŠ¡é…ç½®ä¸­åŠ å…¥AutoFacæ§åˆ¶å™¨æ›¿æ¢è§„åˆ™ã€‚
             services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
             
         }
@@ -128,11 +128,11 @@ namespace TurntableLottery
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            //ÓÃÓÚ·ÃÎÊwwwrootÏÂµÄÎÄ¼ş
+            //ç”¨äºè®¿é—®wwwrootä¸‹çš„æ–‡ä»¶
             app.UseStaticFiles();
-            // ÏÈ¿ªÆôÈÏÖ¤
+            // å…ˆå¼€å¯è®¤è¯
             app.UseAuthentication();
-            // È»ºóÊÇÊÚÈ¨ÖĞ¼ä¼ş
+            // ç„¶åæ˜¯æˆæƒä¸­é—´ä»¶
             app.UseAuthorization();           
 
             app.UseEndpoints(endpoints =>
