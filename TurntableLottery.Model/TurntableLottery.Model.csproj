@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SqlSugar\SqlSugar.csproj" />
+    <ProjectReference Include="..\..\..\..\360极速浏览器下载\SqlSugar-SqlSugar5\Src\Asp.NetCore2\SqlSeverTest\SqlSugar\SqlSugar.csproj" />
     <ProjectReference Include="..\TurntableLottery.Configuration\TurntableLottery.Configuration.csproj" />
   </ItemGroup>
 

@@ -10,10 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TurntableLottery.Bussiness\TurntableLottery.Bussiness.csproj" />
     <ProjectReference Include="..\TurntableLottery.Configuration\TurntableLottery.Configuration.csproj" />
+    <ProjectReference Include="..\TurntableLottery.IService\TurntableLottery.IService.csproj" />
     <ProjectReference Include="..\TurntableLottery.NetCore\TurntableLottery.NetCore.csproj" />
     <ProjectReference Include="..\TurntableLottery.Token\TurntableLottery.Token.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="https://appsemble.app/api.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

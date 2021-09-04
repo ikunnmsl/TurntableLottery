@@ -12,12 +12,6 @@ namespace TurntableLottery.Service.Admin
 {
     public class AccountService : BaseDB, IAccountService
     {
-        //public SimpleClient<Account> _sdb;
-        //public AccountService(SimpleClient<Account> sdb)
-        //{
-        //    _sdb = sdb;
-        //}
-
         public SimpleClient<Account> _sdb = new SimpleClient<Account>(BaseDB.GetClient());
         public bool Add(Account entity)
         {
@@ -34,9 +28,9 @@ namespace TurntableLottery.Service.Admin
             return _sdb.GetById(id);
         }
 
-        public Task<Account> GetAccout(string AccountCode, string PassWord)
+        public async Task<Account> GetAccount(string AccountCode, string PassWord)
         {
-            return _sdb.GetSingleAsync(a => a.AccountCode == AccountCode && a.PassWord == PassWord);
+            return await _sdb.GetSingleAsync(a => a.AccountCode == AccountCode && a.PassWord == PassWord);
         }
 
         public TableModel<Account> GetPageList(int pageIndex, int pageSize)

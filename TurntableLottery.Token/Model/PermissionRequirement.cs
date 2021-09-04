@@ -40,10 +40,6 @@ namespace TurntableLottery.Token.Model
         /// </summary>
         public string Audience { get; set; }
         /// <summary>
-        /// 安全密钥
-        /// </summary>
-        public string SecurityKey { get; set; }
-        /// <summary>
         /// 过期时间
         /// </summary>
         public TimeSpan Expiration { get; set; }
@@ -57,19 +53,17 @@ namespace TurntableLottery.Token.Model
         /// 构造
         /// </summary>
         /// <param name="deniedAction">拒约请求的url</param>
-        /// <param name="permissions">权限集合</param>
         /// <param name="claimType">声明类型</param>
         /// <param name="issuer">发行人</param>
         /// <param name="audience">订阅人</param>
         /// <param name="signingCredentials">签名验证实体</param>
         /// <param name="expiration">过期时间</param>
-        public PermissionRequirement(string deniedAction,  string claimType, string issuer, string audience,string securityKey, SigningCredentials signingCredentials, TimeSpan expiration)
+        public PermissionRequirement(string deniedAction,  string claimType, string issuer, string audience, SigningCredentials signingCredentials, TimeSpan expiration)
         {
             ClaimType = claimType;
             DeniedAction = deniedAction;           
             Issuer = issuer;
             Audience = audience;
-            SecurityKey = securityKey;
             Expiration = expiration;
             SigningCredentials = signingCredentials;
         }

@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TurntableLottery.Bussiness.Admin;
 using TurntableLottery.Entity;
+using TurntableLottery.IService.Admin;
 
 namespace TurntableLottery.Controllers
 {
@@ -17,10 +17,14 @@ namespace TurntableLottery.Controllers
     [AllowAnonymous]
     public class AccountController : ControllerBase
     {
-        private readonly AccountBLL _accountBLL;
-        public AccountController(AccountBLL accountBLL)
+        private readonly IAccountService _account;
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="account"></param>
+        public AccountController(IAccountService account)
         {
-            _accountBLL = accountBLL;
+            _account = account;
         }
         /// <summary>
         /// 获取用户分页列表
@@ -31,7 +35,7 @@ namespace TurntableLottery.Controllers
         [HttpGet]
         public JsonResult GetStudentPageList(int pageIndex = 1, int pageSize = 10)
         {
-            return new JsonResult(_accountBLL.GetPageList(pageIndex, pageSize));
+            return new JsonResult(_account.GetPageList(pageIndex, pageSize));
         }
         /// <summary>
         /// 获取单个用户
@@ -39,9 +43,9 @@ namespace TurntableLottery.Controllers
         /// <param name="id">Id</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public JsonResult GetStudentById(Guid id)
+        public JsonResult GetAccountById(Guid id)
         {
-            return new JsonResult(_accountBLL.GetById(id));
+            return new JsonResult(_account.Get(id));
         }
         /// <summary>
         /// 添加
@@ -53,7 +57,7 @@ namespace TurntableLottery.Controllers
         {
             if (entity == null)
                 return new JsonResult("参数为空");
-            return new JsonResult(_accountBLL.Add(entity));
+            return new JsonResult(_account.Add(entity));
         }
         /// <summary>
         /// 编辑学生
@@ -65,7 +69,7 @@ namespace TurntableLottery.Controllers
         {
             if (entity == null)
                 return new JsonResult("参数为空");
-            return new JsonResult(_accountBLL.Update(entity));
+            return new JsonResult(_account.Update(entity));
         }
 
         /// <summary>
@@ -78,7 +82,7 @@ namespace TurntableLottery.Controllers
         {
             if (ids.Length == 0)
                 return new JsonResult("参数为空");
-            return new JsonResult(_accountBLL.Dels(ids));
+            return new JsonResult(_account.Dels(ids));
         }
     }
 }

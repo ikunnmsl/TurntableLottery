@@ -9,6 +9,9 @@ using TurntableLottery.Token.Model;
 
 namespace TurntableLottery.AuthHelp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class TokenAuth
     {
         /// <summary>
@@ -23,7 +26,11 @@ namespace TurntableLottery.AuthHelp
         {
             _next = next;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
         public Task Invoke(HttpContext httpContext)
         {
             var headers = httpContext.Request.Headers;

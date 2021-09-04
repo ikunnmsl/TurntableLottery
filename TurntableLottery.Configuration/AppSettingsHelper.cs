@@ -11,10 +11,17 @@ namespace TurntableLottery.Configuration
     {
         static IConfiguration Configuration { get; set; }
 
+        public AppSettingsHelper(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         public AppSettingsHelper(string contentPath)
         {
             string Path = "appsettings.json";
-            Configuration = new ConfigurationBuilder().SetBasePath(contentPath).Add(new JsonConfigurationSource { Path = Path, Optional = false, ReloadOnChange = true }).Build();
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(contentPath)
+                .Add(new JsonConfigurationSource { Path = Path, Optional = false, ReloadOnChange = true })
+                .Build();
         }
 
         /// <summary>

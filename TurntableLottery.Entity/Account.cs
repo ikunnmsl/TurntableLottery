@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlSugar;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +10,7 @@ namespace TurntableLottery.Entity
         /// <summary>
         /// ID
         /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public Guid Id { get; set; }
 
         /// <summary>

@@ -4,12 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\houshanwen\WebAPI\TurntableLottery\TurntableLottery\bin\Debug\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Client\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SqlSugar\SqlSugar.csproj" />
     <ProjectReference Include="..\TurntableLottery.Entity\TurntableLottery.Entity.csproj" />
     <ProjectReference Include="..\TurntableLottery.IService\TurntableLottery.IService.csproj" />
     <ProjectReference Include="..\TurntableLottery.Model\TurntableLottery.Model.csproj" />

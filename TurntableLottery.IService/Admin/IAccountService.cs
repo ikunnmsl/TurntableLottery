@@ -29,7 +29,7 @@ namespace TurntableLottery.IService.Admin
         /// <param name="AccountCode"></param>
         /// <param name="PassWord"></param>
         /// <returns></returns>
-        Task<Account> GetAccout(string AccountCode, string PassWord);
+        Task<Account> GetAccount(string AccountCode, string PassWord);
         /// <summary>
         /// 添加
         /// </summary>

@@ -24,7 +24,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TurntableLottery.AuthHelp;
-using TurntableLottery.Bussiness;
 using TurntableLottery.Configuration;
 using TurntableLottery.NetCore;
 using TurntableLottery.NetCore.AutofacRegister;
@@ -50,9 +49,13 @@ namespace TurntableLottery
             Configuration = configuration;
             Env = env;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public IConfiguration Configuration { get; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public IWebHostEnvironment Env { get; }
 
         /// <summary>
@@ -61,14 +64,10 @@ namespace TurntableLottery
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-
+            services.AddSingleton(new AppSettingsHelper(Configuration));
             services.AddControllers();
             //添加本地路径获取支持
             services.AddSingleton(new AppSettingsHelper(Env.ContentRootPath));
-
-            //使用 SignalR
-            services.AddSignalR();
 
             //jwt授权支持注入
             services.AddAuthorizationSetup();

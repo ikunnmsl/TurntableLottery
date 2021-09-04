@@ -9,6 +9,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using TurntableLottery.Configuration;
+using System.Security.Claims;
+using TurntableLottery.Token.Model;
 
 namespace TurntableLottery.Token
 {
@@ -81,6 +83,17 @@ namespace TurntableLottery.Token
                 options.AddPolicy("Client", policy => policy.RequireClaim("ClientType").Build());
                 options.AddPolicy("Admin", policy => policy.RequireClaim("AdminType").Build());
             });
+
+            var permissionRequirement = new PermissionRequirement(
+                "/api/denied",// 拒绝授权的跳转地址（目前无用）
+                ClaimTypes.Role,//基于角色的授权
+                issuer,//发行人
+                audience,//听众
+                signingCredentials,//签名凭据
+                expiration: TimeSpan.FromSeconds(60 * 60)//接口的过期时间
+                );
+
+            services.AddSingleton(permissionRequirement);
         }
     }
 }
